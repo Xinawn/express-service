@@ -1,41 +1,73 @@
-const Task = require('./task.model');
+const Exams = require('./task.model');
 
-const Tasks = [new Task()];
+// const Tasks = [new Task()];
+const Examses = [new Exams()];
 
-const getAll = async () => Tasks;
+// const getAll = async () => Tasks;
+const getAll = async () => Examses;
 
-const getById = async (id) => Tasks.find((task) => task.id === id);
+// const getById = async (id) => Tasks.find((task) => task.id === id);
+const getById = async (id) => Examses.find((exams) => exams.id === id);
 
-const createTask = async ({
+// const createTask = async ({
+//   id,
+//   title,
+//   order,
+//   description,
+//   userId,
+//   boardId,
+//   columnId,
+// }) => {
+//   const task = new Task({
+//     id,
+//     title,
+//     order,
+//     description,
+//     userId,
+//     boardId,
+//     columnId,
+//   });
+//   Tasks.push(task);
+//   return task;
+// };
+const createExams = async ({
   id,
-  title,
-  order,
-  description,
-  userId,
-  boardId,
-  columnId,
+  subject,
+  date,
+  score,
+  abiturientId,
+  teacherId,
 }) => {
-  const task = new Task({
+  const exams = new Exams({
     id,
-    title,
-    order,
-    description,
-    userId,
-    boardId,
-    columnId,
+    subject,
+    date,
+    score,
+    abiturientId,
+    teacherId,
   });
-  Tasks.push(task);
-  return task;
+  Examses.push(exams);
+  return exams;
 };
 
+// const deleteById = async (id) => {
+//   const boardPosition = Tasks.findIndex((task) => task.id === id);
+
+//   if (boardPosition === -1) return null;
+
+//   const taskDeletable = Tasks[boardPosition];
+
+//   Tasks.splice(boardPosition, 1);
+//   return taskDeletable;
+// };
 const deleteById = async (id) => {
-  const boardPosition = Tasks.findIndex((task) => task.id === id);
+  const boardPosition = Examses.findIndex((exams) => exams.id === id);
 
   if (boardPosition === -1) return null;
 
-  const taskDeletable = Tasks[boardPosition];
+  const taskDeletable = Examses[boardPosition];
 
-  Tasks.splice(boardPosition, 1);
+  Examses.splice(boardPosition, 1);
   return taskDeletable;
 };
 
@@ -82,10 +114,10 @@ const deleteByBoardId = async (boardId) => {
 };
 
 module.exports = {
-  Tasks,
+  Examses,
   getAll,
   getById,
-  createTask,
+  createExams,
   deleteById,
   updateById,
   removeUserById,

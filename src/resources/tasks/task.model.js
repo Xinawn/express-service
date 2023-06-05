@@ -1,28 +1,51 @@
 const { v4: uuid } = require('uuid');
 
-class Task {
+// class Task {
+//   constructor({
+//     id = uuid(),
+//     title = 'BOARD',
+//     order = 0,
+//     description = 'description',
+//     teacherId = null,
+//     abiturientId = null,
+//     columnId = null,
+//   } = {}) {
+//     this.id = id;
+//     this.title = title;
+//     this.order = order;
+//     this.description = description;
+//     this.abiturientId = abiturientId;
+//     this.teacherId = boardId;
+//     this.columnId = columnId;
+//   }
+
+class Exams {
   constructor({
     id = uuid(),
-    title = 'BOARD',
-    order = 0,
-    description = 'description',
-    boardId = null,
-    userId = null,
-    columnId = null,
-  } = {}) {
-    this.id = id;
-    this.title = title;
-    this.order = order;
-    this.description = description;
-    this.userId = userId;
-    this.boardId = boardId;
-    this.columnId = columnId;
+    subject='ris',
+    date='12 may',
+    score= 4,
+    abiturientId=null,
+    teacherId=null,
+  } ={}) {
+    this.id=id;
+    this.subject=subject;
+    this.date=date;
+    this.score=score;
+    this.abiturientId=abiturientId;
+    this.teacherId=teacherId;
   }
 
-  static toResponse(task) {
-    const { id, title, order, description, userId, boardId, columnId } = task;
-    return { id, title, order, description, userId, boardId, columnId };
+  static toResponse(exams) {
+    const { id, subject,date, score, abiturientId,teacherId} = exams;
+    return{id, subject,date, score, abiturientId,teacherId} ;
   }
 }
 
-module.exports = Task;
+  // static toResponse(task) {
+  //   const { id, title, order, description, userId, boardId, columnId } = task;
+  //   return { id, title, order, description, userId, boardId, columnId };
+  // }
+
+
+module.exports = Exams;
