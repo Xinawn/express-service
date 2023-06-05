@@ -17,6 +17,6 @@ app.use('/', (req, res, next) => {
 
 app.use('/abiturients', abiturientsRouter);
 app.use('/teacher', teacherRouter);
-app.use('/tasks', examsRouter);
+app.use('/exams', examsRouter);
 
 module.exports = app;
