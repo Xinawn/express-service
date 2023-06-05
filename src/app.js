@@ -3,7 +3,7 @@ const express = require('express');
 // const path = require('path');
 // const YAML = require('yamljs');
 const abiturientsRouter = require('./resources/abiturients/abiturients.router');
-// const boardRouter = require('./resources/boards/board.router');
+const teacherRouter = require('./resources/teachers/teachers.router');
 const examsRouter = require('./resources/exams/exams.router');
 
 const app = express();
@@ -22,7 +22,7 @@ app.use('/', (req, res, next) => {
 });
 
 app.use('/abiturients', abiturientsRouter);
-// app.use('/boards', boardRouter);
+app.use('/teacher', teacherRouter);
 app.use('/tasks', examsRouter);
 
 module.exports = app;
