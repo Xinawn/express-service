@@ -4,7 +4,7 @@ const path = require('path');
 const YAML = require('yamljs');
 const abiturientsRouter = require('./resources/abiturients/abiturients.router');
 // const boardRouter = require('./resources/boards/board.router');
-// const taskRouter = require('./resources/tasks/task.router');
+const examsRouter = require('./resources/exams/exams.router');
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
@@ -23,6 +23,6 @@ app.use('/', (req, res, next) => {
 
 app.use('/abiturients', abiturientsRouter);
 // app.use('/boards', boardRouter);
-// app.use('/boards/:boardId/tasks', taskRouter);
+app.use('/tasks', examsRouter);
 
 module.exports = app;
